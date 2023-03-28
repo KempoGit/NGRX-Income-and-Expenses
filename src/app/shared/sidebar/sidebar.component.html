@@ -20,27 +20,27 @@
         </li>
 
         <li class="nav-item" routerLink="/">
-            <a class="nav-link">
+            <a class="nav-link cursor">
                 <i class="menu-icon fa fa-tachometer-alt"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
 
         <li class="nav-item" routerLink="/income-expenses">
-            <a class="nav-link">
+            <a class="nav-link cursor">
                 <i class="menu-icon fa fa-clipboard-list"></i>
                 <span class="menu-title">Income and expenses</span>
             </a>
         </li>
 
         <li class="nav-item" routerLink="/details">
-            <a class="nav-link">
+            <a class="nav-link cursor">
                 <i class="menu-icon fa fa-table"></i>
                 <span class="menu-title">Details</span>
             </a>
         </li>
 
-        <li class="nav-item" routerLink="/login">
+        <li class="nav-item" (click)="logout()">
             <a class="nav-link cursor">
                 <i class="menu-icon fa fa-sign-out-alt"></i>
                 <span class="menu-title">Close session</span>
