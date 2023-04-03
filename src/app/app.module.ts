@@ -28,6 +28,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { IncomeOrderPipe } from './pipes/income-order.pipe';
+
+// NgCharts
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -41,12 +45,14 @@ import { RegisterComponent } from './auth/register/register.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    RegisterComponent
+    RegisterComponent,
+    IncomeOrderPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    NgChartsModule,
     provideFirebaseApp(() => initializeApp( environment.firebaseConfig )),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

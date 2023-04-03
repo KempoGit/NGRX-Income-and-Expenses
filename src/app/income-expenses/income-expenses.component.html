@@ -7,16 +7,26 @@
                     Specify amount and type
                 </p>
 
-                <form>
+                <form [formGroup]="incomeForm" (ngSubmit)="save()">
 
                     <div class="form-group">
                         <label>Description</label>
-                        <input type="text" class="form-control" placeholder="Description" name="description">
+                        <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Description"
+                            name="description"
+                            formControlName="description">
                     </div>
 
                     <div class="form-group">
-                        <label>Amoun</label>
-                        <input type="number" class="form-control" placeholder="Amoun" name="amoun">
+                        <label>Amount</label>
+                        <input
+                            type="number"
+                            class="form-control"
+                            placeholder="Amount"
+                            name="amount"
+                            formControlName="amount">
                         <p>
                             Amount must be positive
                         </p>
@@ -25,14 +35,31 @@
                     <div class="form-group">
                         <label>Type</label>
                         <br>
-                        <button type="button" class="btn btn-primary btn-block">Income</button>
-                        <!-- <button type="button" class="btn btn-warning btn-block">Expenses</button> -->
+                        <button
+                            *ngIf="type === 'income'"
+                            (click)="type = 'expenses'"
+                            type="button"
+                            class="btn btn-primary btn-block">
+                            Income
+                        </button>
+                        <button
+                            *ngIf="type === 'expenses'"
+                            (click)="type = 'income'"
+                            type="button"
+                            class="btn btn-warning btn-block">
+                            Expenses
+                        </button>
                     </div>
 
                     <hr>
-                    <button type="button" class="btn btn-success mr-2">
+                    <button *ngIf="!loading" type="submit" class="btn btn-success mr-2" [disabled]="incomeForm.invalid">
                         <i class="fa fa-save"></i>
                         Add
+                    </button>
+
+                    <button *ngIf="loading" type="submit" class="btn btn-success mr-2" [disabled]="true">
+                        <i class="fa fa-spin fa-sync"></i>
+                        Saving...
                     </button>
 
                     <!-- 
