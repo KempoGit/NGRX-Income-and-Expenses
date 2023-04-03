@@ -1,9 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
 import { IncomeExpenses } from 'src/app/models/income-expenses.model';
 import { ChartData, ChartEvent } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { AppStateWithIncomeExpenses } from '../income-expenses.reducer';
 
 @Component({
   selector: 'app-statistics',
@@ -29,7 +29,7 @@ export class StatisticsComponent {
     ]
   };
 
-  constructor(private _Store: Store<AppState>) {
+  constructor(private _Store: Store<AppStateWithIncomeExpenses>) {
     this._Store.select('incomeExpenses').subscribe( ({items}) => {
       this.generateStatistics(items);
     });

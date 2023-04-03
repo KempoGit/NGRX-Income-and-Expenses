@@ -1,10 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { AppState } from 'src/app/app.reducer';
 import { IncomeExpenses } from 'src/app/models/income-expenses.model';
 import { IncomeExpensesService } from 'src/app/services/income-expenses.service';
 import Swal from 'sweetalert2';
+import { AppStateWithIncomeExpenses } from '../income-expenses.reducer';
 
 @Component({
   selector: 'app-details',
@@ -16,7 +16,7 @@ export class DetailsComponent implements OnDestroy {
   incomeExpenses!: IncomeExpenses[];
   incomeExpensesSubscription!: Subscription;
 
-  constructor( private _Store: Store<AppState>, private _IncomeExpensesService: IncomeExpensesService) {
+  constructor( private _Store: Store<AppStateWithIncomeExpenses>, private _IncomeExpensesService: IncomeExpensesService) {
     this.incomeExpensesSubscription = this._Store.select('incomeExpenses')
     .subscribe( ({ items }) => this.incomeExpenses = items );
   }

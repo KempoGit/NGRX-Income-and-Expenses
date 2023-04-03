@@ -2,7 +2,13 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms';
+
+// App component
+import { AppComponent } from './app.component';
+
+// App modules
+import { AuthModule } from './auth/auth.module';
+import { IncomeExpensesModule } from './income-expenses/income-expenses.module';
 
 // Environment
 import { environment } from 'src/environments/environment';
@@ -17,42 +23,15 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './app.reducer';
 
-// Components
-import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { IncomeExpensesComponent } from './income-expenses/income-expenses.component';
-import { StatisticsComponent } from './income-expenses/statistics/statistics.component';
-import { DetailsComponent } from './income-expenses/details/details.component';
-import { FooterComponent } from './shared/footer/footer.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { IncomeOrderPipe } from './pipes/income-order.pipe';
-
-// NgCharts
-import { NgChartsModule } from 'ng2-charts';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent,
-    IncomeExpensesComponent,
-    StatisticsComponent,
-    DetailsComponent,
-    FooterComponent,
-    NavbarComponent,
-    SidebarComponent,
-    RegisterComponent,
-    IncomeOrderPipe
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    NgChartsModule,
     provideFirebaseApp(() => initializeApp( environment.firebaseConfig )),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
