@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "prod": "ngrx-inc-and-exp",
+    "default": "ngrx-inc-and-exp"
+  },
+  "targets": {},
+  "etags": {}
+}
