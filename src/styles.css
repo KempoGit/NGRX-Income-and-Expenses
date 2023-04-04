@@ -2,3 +2,7 @@
 .cursor {
     cursor: pointer;
 }
+
+.svg-profile {
+    mix-blend-mode: darken;
+}
