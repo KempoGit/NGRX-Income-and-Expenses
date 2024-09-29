@@ -12738,7 +12738,6 @@ input:focus {
     color: #ffffff;
     padding-left: 15px;
     padding-right: 15px;
-    width: calc(100% - 255px);
     height: 63px; }
     @media (max-width: 991px) {
       .navbar.default-layout .navbar-menu-wrapper {
@@ -13040,7 +13039,7 @@ html {
 
 .content-wrapper {
   background: #f2f8f9;
-  padding: 1.5rem 1.7rem;
+  padding: 1.5rem 0.7rem;
   width: 100%;
   -webkit-flex-grow: 1;
   flex-grow: 1; }

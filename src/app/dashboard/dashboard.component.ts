@@ -12,6 +12,8 @@ import * as actions from '../income-expenses/income-expenses.actions';
 })
 export class DashboardComponent implements OnDestroy{
 
+  showSidebar: boolean = false;
+  uiSubscription: Subscription;
   userSubscription!: Subscription;
 
   incomeExpensesSubscription!: Subscription;
@@ -30,6 +32,14 @@ export class DashboardComponent implements OnDestroy{
         this._Store.dispatch(actions.setItems({items:incomeExpensesFB}))
       });
       
+    });
+
+    this.uiSubscription = this._Store.select('ui')
+    .pipe(
+      filter( ({isSidebar}) => isSidebar !== null )
+    )
+    .subscribe(({isSidebar}) => {
+      this.showSidebar = isSidebar;
     });
   }
 

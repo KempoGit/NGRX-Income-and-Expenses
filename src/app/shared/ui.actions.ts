@@ -8,3 +8,11 @@ export const stopLoading = createAction(
     '[UI Component] Stop Loading'
 );
 
+export const isSidebar = createAction(
+    '[UI Component] Is Sidebar'
+);
+
+export const stopSidebar = createAction(
+    '[UI Component] Stop Sidebar'
+);
+

@@ -1,6 +1,9 @@
 <app-navbar></app-navbar>
 <div class="page-body-wrapper">
-    <app-sidebar></app-sidebar>
+    <ng-container *ngIf="this.showSidebar">
+        <app-sidebar></app-sidebar>
+    </ng-container>
+    
     <div class="main-panel">
         <div class="content-wrapper">
             <router-outlet></router-outlet>

@@ -24,6 +24,8 @@ export class SidebarComponent {
     .subscribe(({user}) => {
       this.userName = user?.name;
     });
+
+    
   }
 
   logout() {

@@ -2,6 +2,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subscription, filter } from 'rxjs';
 import { AppState } from 'src/app/app.reducer';
+import * as ui from '../../shared/ui.actions';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { AppState } from 'src/app/app.reducer';
 })
 export class NavbarComponent implements OnDestroy {
 
+  sidebar: boolean = false;
   userName: string | undefined;
   userSubscription: Subscription;
 
@@ -21,6 +23,15 @@ export class NavbarComponent implements OnDestroy {
     .subscribe(({user}) => {
       this.userName = user?.name;
     });
+  }
+
+  showSidebar() {
+    if(this.sidebar) {
+      this._Store.dispatch( ui.stopSidebar() );
+    } else {
+      this._Store.dispatch( ui.isSidebar() );
+    }
+    this.sidebar = !this.sidebar;
   }
 
   ngOnDestroy(): void {
